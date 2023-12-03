@@ -41,7 +41,7 @@
 	<div class="mb-3 has-validation">
 		<label class="form-label">Cargo</label>
 		<select class="form-select" aria-label="Default select example" aria-label=".form-select-sm example">
-			<option selected>Selecione o cargo</option>
+			<option value="-1"selected>Selecione o cargo</option>
 			<option value="0" #{if usuario?.cargo == 0} selected #{/if}>Cliente</option>
 			<option value="1" #{if usuario?.cargo == 1} selected #{/if}>Admin</option>
 		</select>
