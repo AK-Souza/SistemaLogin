@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+<h1> Listagem de usuários </h1>
+<br/>
+
+
+#{list items:usuarios, as:'u'}
+ #{if session.get("usuario.cargo").equals("1")}
+            
+	
+	<a href="@{Usuarios.editar(u.id)}">Editar</a>
+	<a href="@{Usuarios.remover(u.id)}">Remover</a>
+ #{/if}
+	${u.nome} - ${u.email} - ${u.cargo}<br/>
+	
+#{/list}

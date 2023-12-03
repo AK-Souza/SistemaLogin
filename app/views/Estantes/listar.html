@@ -1,0 +1,43 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Estante' /}
+<h1> Listagem de Esstante </h1>
+<br/>
+
+
+<div class="px-5 pt-4">
+	<h3>#{get 'title'/}</h3>
+	<form class="d-flex" role="search">
+		<input class="form-control me-2" type="search" placeholder="Pesquise Estoque" aria-label="Search" name ="busca" value="${busca}">
+		<button class="btn btn-outline-dark" type="submit">Pesquisar</button>
+	  </form>
+</div>
+
+</br>
+
+<div class="px-5 pt-4">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			<th>#</th>
+			<th>setor</th>
+			<th>carreira</th>
+			<th>Categoria</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			#{list items:lista, as:'est'}
+				<tr>
+					<th>${est.id}</th>
+					<td>${est.setor}</td>
+					<td>${est.carreira}</td>
+					<td>${est.categoria}</td>
+					<td>
+						<button type="button" class="btn btn-dark"><a class="text-white" href='@{Estantes.editar(est.id)}' >Editar</a></button> |
+						<button type="button" class="btn btn-dark"><a class="text-white" href='@{Estantes.deletar(est.id)}' >Deletar</a></button>			
+					</td>
+				</tr>
+			#{/list}
+		</tbody>
+	</table>
+</div>

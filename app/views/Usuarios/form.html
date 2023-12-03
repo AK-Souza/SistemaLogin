@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<form action="@{Usuarios.salvar}">
+
+	<input type="hidden" name="usuario.id" value="${usuario?.id}" />
+
+	Nome <input type="text" name="usuario.nome" value="${usuario?.nome}" />
+	<span class='vermelho'>#{error 'usuario.nome' /}</span>
+	<br/>
+	
+	E-mail <input type="text" name="usuario.email" value="${usuario?.email}" />
+	<span class='vermelho'>#{error 'usuario.email' /}</span>
+	<br/>
+	
+	Senha <input type="password" name="senha" value="" />
+	<span class='vermelho'>#{error 'usuario.senha' /}</span>
+	<br/>
+	
+	Confirma&ccedil;&atilde;o da senha
+	<input type="password" name="usuario.confirmacaosenha" value="" /> <br/>
+	
+	Nivel 
+	Cargo 
+	<select name="usuario.cargo">
+		<option value="0" #{if usuario?.cargo == 0} selected #{/if}>Cliente</option>
+		<option value="1" #{if usuario?.cargo == 1} selected #{/if}>Admin</option>
+	</select>
+	<span class ='vermelho'>#{error 'usuario.cargo' /}</span>
+	 <br/>
+	
+	<button>Salvar</button>
+</form>

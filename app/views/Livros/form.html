@@ -1,0 +1,38 @@
+#{extends 'main.html' /}
+#{set title:'formulário de livros' /}
+
+<div class="px-5 pt-4">
+    <h3>#{get 'title'/}</h3>
+</div>
+
+<form action ="@{Livros.salvar}" method="post" class="px-5 pt-4">
+    <input type ="hidden" name ="liv.id" value ="${liv?.id}">
+    
+   Nome <input type="text" name="liv.nome" value="${liv?.nome}" />
+	<span class='vermelho'>#{error 'liv.nome' /}</span>
+	
+    <div class="mb-3">
+        <label class="form-label">Código</label>
+        <input class="form-control" name ="liv.codigo" value ="${liv?.codigo}">
+        <span class ='vermelho'>#{error 'liv.codigo' /}</span>
+    </div>
+	preco <input type="text" name="liv.preco" value="${liv?.preco}" />
+	    <span class='vermelho'>#{error 'liv.preco' /}</span>    
+	Descricao <input type="text" name="liv.descricao" value="${liv?.descricao}" />
+	    
+ <div class="mb-3">
+        <lable>Estante</lable>
+        <select class="form-select form-select mb-3" name ="liv.estante.id">
+            <option selected>Selecione a estante</option>
+            #{list items:estantes, as:'est'}
+            <option value ="${est?.setor}" #{if liv?.estante?.id == est.id } selected #{/if} >${est.setor}</option>
+            <option value ="${est?.carreira}" #{if liv?.estante?.id == est.id } selected #{/if} >${est.carreira}</option>
+            <option value ="${est?.categoria}" #{if liv?.estante?.id == est.id } selected #{/if} >${est.categoria}</option>
+            #{/list}
+            </select>
+    </div>	
+	
+    <div class="mb-3">
+            <button class="btn btn-dark mt-4">salvar</button>
+    </div>
+</form>
