@@ -1,2 +1,8 @@
+Estante(terror):
+    setor: A
+    carreira: 1
+    categoria: Terror
 Estante(romance):
-    numero: 1
+    setor: B
+    carreira: 1
+    categoria: Romance

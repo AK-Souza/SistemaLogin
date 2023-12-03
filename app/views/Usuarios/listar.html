@@ -1,16 +1,44 @@
-#{extends 'main.html' /}
-#{set title:'Home' /}
-<h1> Listagem de usuários </h1>
-<br/>
+#{extends 'resto.html' /}
+#{set title:'Listagem de Usuários' /}
 
+<div class="px-5 pt-4">
+	<h3>#{get 'title'/}</h3>
+	<form class="d-flex" role="search">
+		<input class="form-control me-2" type="search" placeholder="Pesquise Estoque" aria-label="Search" name ="busca" value="${busca}">
+		<button class="btn btn-outline-dark" type="submit">Pesquisar</button>
+	  </form>
+</div>
 
-#{list items:usuarios, as:'u'}
- #{if session.get("usuario.cargo").equals("1")}
-            
-	
-	<a href="@{Usuarios.editar(u.id)}">Editar</a>
-	<a href="@{Usuarios.remover(u.id)}">Remover</a>
- #{/if}
-	${u.nome} - ${u.email} - ${u.cargo}<br/>
-	
-#{/list}
+</br>
+
+<div class="px-5 pt-4">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			<th>#</th>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Cargo</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		#{if session.get("usuario.cargo").equals("1")}
+			#{list items:usuarios, as:'u'}
+				<tr>
+					<th>${u.id}</th>
+					<td>${u.nome}</td>
+					<td>${u.email}</td>
+					<td>#{if u.cargo == 0} Cliente #{/if} #{else} Admin #{/else}</td>
+
+					<td>
+						<button type="button" class="btn btn-dark"><a class="text-white" href='@{Usuarios.editar(u.id)}' >Editar</a></button> |
+						<button type="button" class="btn btn-dark"><a class="text-white" href='@{Usuarios.remover(u.id)}' >Deletar</a></button>			
+					</td>
+				</tr>
+			#{/list}
+		#{/if}
+		</tbody>
+	</table>
+</div>
+

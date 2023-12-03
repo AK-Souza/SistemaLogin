@@ -1,5 +1,9 @@
 package models;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
@@ -11,4 +15,11 @@ public class Estante extends Model {
     public String carreira;
 	@Required
     public String categoria;
+
+    @OneToMany(mappedBy="estante")
+    public List<Livro> livros;
+
+    public long qtdLivros() {
+        return livros.size();
+    }
 }

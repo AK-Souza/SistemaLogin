@@ -8,7 +8,6 @@ import play.cache.Cache;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
-import models.Estante;
 import models.Livro;
 @With(Seguranca.class)
 
@@ -38,13 +37,13 @@ public class Usuarios extends Controller {
 		
 		if (validation.hasErrors()) {
 			validation.keep();
-			flash.error("Falha ao cadastrar funcionário");
+			flash.error("Falha ao cadastrar usuário");
 			Cache.set("usuario", usuario);
 			form();
 		}
 
 		usuario.save();
-		flash.success("Funcionário cadastrado");
+		flash.success("Usuário cadastrado");
 		listar();
 	}
 	

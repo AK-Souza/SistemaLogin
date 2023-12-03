@@ -15,8 +15,8 @@ public class Livros extends Controller{
     	Livro liv = (Livro)Cache.get("liv");
     	Cache.clear();
 		
-		
-		render( liv);
+		List<Estante> estantes = Estante.findAll();
+		render(liv, estantes);
 	}
 
 	public static void salvar(@Valid Livro liv) {

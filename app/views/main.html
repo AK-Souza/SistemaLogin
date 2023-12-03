@@ -9,28 +9,30 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
   #{get 'moreStyles' /}
 
   <!-- Favicons -->
-  <link href="public/assets/img/icon1.png" rel="icon">
-  <link href="public/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/public/assets/img/icon1.png" rel="icon">
+  <link href="/public/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/public/stylesheets/main.css" rel="stylesheet">
+  
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="public/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="public/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="public/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/public/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/public/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/public/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="public/assets/css/style.css" rel="stylesheet">
+  <link href="/public/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Gp
@@ -44,10 +46,10 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
+  <header id="header" class="fixed-top header-scrolled">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="#">Livraria Entrelinhas<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="@{Application.index}">Livraria Entrelinhas<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -59,7 +61,6 @@
               <li><a href="@{Usuarios.form}">Cadastro de Usuários</a></li>
               <li><a href="@{Estantes.form}">Cadastro de Estante</a></li>
               <li><a href="@{Livros.form}">Cadastro de livros</a></li>
-              <li><a href="@{Livros.form}">Cadastro de livros</a></li> 
             </ul>
 
             <li class="dropdown"><a href="#"><span>Listas</span> <i class="bi bi-chevron-down"></i></a>
@@ -69,83 +70,16 @@
               <li><a href="@{Livros.listar}">Lista de livros</a></li>
             </ul>
 
-          <li><a href="#">Bem-vindo, ${session.get("usuario.nome")}!</a></li>
-
         #{/if}
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-
-        #{if flash.success}
-        <div class ='msgverde'> ${flash.success}</div>
-        #{/if}
-        
-        #{if flash.error}
-        <div class ='msgvermelha'> ${flash.error}</div>
-        #{/if}
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center justify-content-center">
-    <div class="container" data-aos="fade-up">
-
-      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-        <div class="col-xl-6 col-lg-8">
-          <h1>É PRECISO QUE A LEITURA SEJA UM ATO DE AMOR<span>.</span></h1>
-          <h2>- Paulo Freire.</h2>
-        </div>
-      </div>
-
-      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-store-line"></i>
-            <h3><a href="">Lorem Ipsum</a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line"></i>
-            <h3><a href="">Dolor Sitema</a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-calendar-todo-line"></i>
-            <h3><a href="">Sedare Perspiciatis</a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-paint-brush-line"></i>
-            <h3><a href="">Magni Dolores</a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-database-2-line"></i>
-            <h3><a href="">Nemos Enimade</a></h3>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-    
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-      #{doLayout /}
-      </div>
-    </section><!-- End About Section -->
-
-  </main><!-- End #main -->
+  #{doLayout /}
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -180,16 +114,16 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="public/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="public/assets/vendor/aos/aos.js"></script>
-  <script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="public/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="public/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="public/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="public/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/public/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/public/assets/vendor/aos/aos.js"></script>
+  <script src="/public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/public/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/public/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/public/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/public/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="public/assets/js/main.js"></script>
+  <script src="/public/assets/js/main.js"></script>
 
         #{get 'moreScripts' /}
 

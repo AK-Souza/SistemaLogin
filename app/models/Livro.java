@@ -17,6 +17,5 @@ public class Livro extends Model{
     public String descricao;
     
     @ManyToOne
-    @JoinColumn(name="EstanteId")
     public Estante estante;
 }
