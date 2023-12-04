@@ -24,7 +24,7 @@ public class Login extends Controller {
              Livros.listar(null);		
 	}
 
-		public static void sair() {
+	public static void sair() {
 		session.clear();
 		Login.form();
 	}
