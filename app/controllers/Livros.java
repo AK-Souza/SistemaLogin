@@ -55,4 +55,15 @@ public class Livros extends Controller{
 		}
         render (lista);
 	}
+
+	public static void listarPorEstante(Long id, String busca) {
+		List<Livro> lista;
+		if (busca == null) {
+			lista = Livro.find("estante_id like ?1", id).fetch();
+		} 
+		else {
+			lista = Livro.find("lower(nome) like ?1 or codigo like ?1 and estante_id like ?2 order by nome ", "%" + busca.toLowerCase() + "%", id).fetch();
+		}
+		renderTemplate("Livros/listar.html", lista, busca, id);
+	}
 }

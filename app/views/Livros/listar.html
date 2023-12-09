@@ -4,6 +4,7 @@
 <div class="px-5 pt-4">
 	<h3>#{get 'title'/}</h3>
 	<form class="d-flex" role="search">
+		<input type="hidden" nome="id" value="${id}">
 		<input class="form-control me-2" type="search" placeholder="Pesquise Livros" aria-label="Search" name ="busca" value="${busca}">
 		<button class="btn btn-outline-dark" type="submit">Pesquisar</button>
 	  </form>
@@ -16,8 +17,8 @@
 			<th>#</th>
 			<th>Nome</th>
 			<th>Código</th>
-			<th>Preco</th> 
-			<th>Descricao</th>
+			<th>Preço</th> 
+			<th>Descrição</th>
 			<th>Estante</th>
 			</tr>
 		</thead>

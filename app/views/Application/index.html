@@ -17,7 +17,7 @@
       <div class="col-xl-2 col-md-4">
         <div class="icon-box">
           <i class="bi bi-book"></i>
-          <h3><a href="@{Livros.listar}">${estante.categoria}</a></h3>
+          <h3><a href="@{Livros.listarPorEstante(estante.id)}">${estante.categoria}</a></h3>
           <i><h5>${estante.qtdLivros()} </h5></i>
         </div>
       </div>
